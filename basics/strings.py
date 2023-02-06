@@ -90,7 +90,7 @@ print(format2.format('Груша', 60))
 dir(str) #  посмотреть все доступные методы для данного типа данных
 
 'hello .upper()' # 'HELLO'
-'HELLO'.lower() # 'hello'
+'HELLO .lower()' # 'hello'
 
 'hello WORLD' .swapcase() # 'HELLO world'
 'HeLLo' .swapcase() # 'hEllO'
