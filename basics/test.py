@@ -1,4 +1,5 @@
-list1 = [1,2,3,1,2,3,1,1,1,2,3,1,1]
-while 1 in list1:
-    list1.remove(1)
-print(list1)
+dict1 = {'a':{'key':1}, 'b':{'key':2}, 'c':{'key':3}}
+res = {}
+for key, value in dict1.items():
+    res[key] = value['aaa']
+print(res)
