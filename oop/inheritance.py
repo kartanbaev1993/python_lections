@@ -28,7 +28,7 @@ class A:
         return "AAA"
     
 class B(A):
-    def method (self):
+    def method(self):
         print("Metod v klasse B")
         return_from_super = super().method()
         print("super().method() vernul", return_from_super)
