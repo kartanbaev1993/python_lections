@@ -18,12 +18,25 @@
 
 
 
-class Contact:
-    __phone = None
-    @property
-    def phone(self):
-        return self.__phone
+# class Contact:
+#     __phone = None
+#     @property
+#     def phone(self):
+#         return self.__phone
   
         
-obj = Contact()
-obj.phone = 123
+# obj = Contact()
+# obj.phone = 123
+
+
+class BankAccount:
+    balance = 0
+    def withdraw(self, amount):
+        self.balance -= amount
+        print(f"Ваш баланс:{self.balance} сом")
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Ваш баланс:{self.balance} сом")
+account = BankAccount()
+account.deposit(1000)
+account.withdraw(500)
