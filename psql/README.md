@@ -27,6 +27,7 @@ CREATE TABLE name_of_table(
 DROP DATABASE name_of_db;
 -- udalenie bazu dannyh
 ```
+
 ```sql
 DROP TABLE name_of_table;
 -- udalenie tablicy
@@ -135,8 +136,10 @@ ALTER TABLE name_of_table ALTER COLUMN col_name SET DATA TYPE new_type;
 
 
 # Ogranicheniya (constraints)
-* UNIQUE - ne razreshaet dublikaty
-* NOT NULL - trebuet obyazatel'nogo zapolneniya polya
+* `UNIQUE` - ne razreshaet dublikaty
+* `NOT NULL` - trebuet obyazatel'nogo zapolneniya polya
+* `PRIMARY KEY` - kak UNIQUE i NOT NULL + stroit binary tree dlya bystrogo poiska
+* `FOREIGN KEY` - ssylaetysa na pk v drugoi tablice i proveryaet sushestvuet li takoi id
 
 
 
@@ -155,4 +158,31 @@ ALTER TABLE name_of_table ALTER COLUMN col_name SET DATA TYPE new_type;
 > Mnogie ko mnogim (many to many)
 * odin razrabotchik - mnogo proektov. odin proekt - mnogo razrabotchikov
 
+
+## Realizaciya one2many v postgres
+```sql
+CREATE TABLE blogger (
+    id serial PRIMARY KEY,
+    name varchar(50),
+    age int
+);
+
+CREATE TABLE post (
+    id serial PRIMARY KEY,
+    title varchar(100),
+    body text,
+    blogger_id int.
+
+    CONSTRAINT fk_post_blogger
+    FOREIGN KEY (blogger_id) REFERENCES blogger (id)
+);
+```
+
+# JOINS
+> **JOIN** - instrukciya, kotoraya pozvolyaet odnim SELECTom, brat' 
+dannye iz dvuh tablic (u kotoryh est' svyazannye polya)
+
+> **INNER JOIN (JOIN)** - dostayutsya tol'ko te zapisi u kotoryh est' 
+dannye v oboih tablicah
+> **FULL JOIN** - dostayutsya vse zapisi i s pervoi tablicy i so vtoroi
 
